@@ -9,10 +9,11 @@ const server = http.createServer(app);
 
 const io = socketIO(server);
 
+app.set('port', process.env.PORT || 3000);
 app.use(express.static(__dirname + '/public'));
 
-server.listen(3000, function () {
-    console.log('listening on *:3000');
+server.listen(app.get('port'), function () {
+    console.log('listening on port:', app.get('port'));
 });
 
 // Serial port connection
