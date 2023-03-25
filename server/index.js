@@ -1,54 +1,20 @@
-const express = require('express')
-const http = require('http');
-const morgan = require('morgan');
-const socketIO = require('socket.io');
-const path = require('path');
-const cors = require('cors');
-const { SerialPort } = require('serialport');
-const { ReadlineParser } = require('@serialport/parser-readline')
+import app from "./app";
+import { Server as WebSocketServer } from "socket.io";
+import http from "http";
+import { connectDB } from "./db";
+import { PORT } from "./config";
+import serial from "./serial";
 
-const app = express();
+connectDB();
+
+// Inicializa un servidor HTTP y le pasa la app de express
 const server = http.createServer(app);
 
-const io = socketIO(server);
+// Inicializa el servidor en el puerto PORT o el que se pase por variable de entorno
+const httpServer = server.listen(PORT);
+console.log("Server is listening on port: " + PORT);
 
-app.set('port', process.env.PORT || 3001);
-app.use(express.static(path.join(__dirname, 'public')));
-app.use(morgan('combined'));
-app.use(cors());
-
-/* Create Server */
-server.listen(app.get('port'), function () {
-    console.log('listening on port:', app.get('port'));
-});
-
-
-// Serial port connection
-const port = new SerialPort({
-    path: '/dev/ttyACM0',
-    baudRate: 9600
-},
-    function (err) {
-        if (err) {
-            return console.log('Error: ', err.message);
-        }
-    }
-);
-
-const parser = port.pipe(new ReadlineParser({ delimiter: '\r\n' }));
-
-
-port.on('open', function () {
-    console.log('connection is opened');
-});
-
-parser.on('data', function (data) {
-    let temp = parseInt(data, 10);
-    io.emit('temp', temp);
-    console.log(data);
-});
-
-/* API */
-app.get("/api", (req, res) => {
-    res.send({ response: "I am alive" }).status(200);
-});
+// Inicializa el servidor de websockets
+const io = new WebSocketServer(server);
+//sockets(io);
+serial(io);
