@@ -1,6 +1,9 @@
 const express = require('express')
 const http = require('http');
+const morgan = require('morgan');
 const socketIO = require('socket.io');
+const path = require('path');
+const cors = require('cors');
 const { SerialPort } = require('serialport');
 const { ReadlineParser } = require('@serialport/parser-readline')
 
@@ -9,12 +12,16 @@ const server = http.createServer(app);
 
 const io = socketIO(server);
 
-app.set('port', process.env.PORT || 3000);
-app.use(express.static(__dirname + '/public'));
+app.set('port', process.env.PORT || 3001);
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(morgan('combined'));
+app.use(cors());
 
+/* Create Server */
 server.listen(app.get('port'), function () {
     console.log('listening on port:', app.get('port'));
 });
+
 
 // Serial port connection
 const port = new SerialPort({
@@ -38,6 +45,10 @@ port.on('open', function () {
 parser.on('data', function (data) {
     let temp = parseInt(data, 10);
     io.emit('temp', temp);
-    console.log(temp);
+    console.log(data);
 });
 
+/* API */
+app.get("/api", (req, res) => {
+    res.send({ response: "I am alive" }).status(200);
+});
