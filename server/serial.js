@@ -1,6 +1,5 @@
 import { SerialPort } from "serialport";
 import { ReadlineParser } from "@serialport/parser-readline";
-import { Readline } from "@serialport/parser-readline";
 
 export default (io) => {
   // Serial port connection
