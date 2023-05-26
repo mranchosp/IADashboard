@@ -4,36 +4,46 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>IA Dashboard</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+      />
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-    tailwind.config = {
-      theme: {
-        container: {
-          center: true,
-          padding: '2rem',
-        },
-        extend: {
-          colors: {
-            backdracula: '#282a36',
-            pinkdracula: '#ff79c6',
-            purpledracula: {
-              100: '#bd93f9',
-              200: '#914bf5'
-            },
-            whitedracula: '#f8f8f2',
-            cyandracula: '#8be9fd',
-            greydracula: '#44475a',
-            bluedracula: '#383A59'
+      tailwind.config = {
+        theme: {
+          container: {
+            center: true,
+            padding: "2rem",
           },
-          dropShadow: {
-            whitemd: '0 0.35px 5px rgb(248,248,242)'
-          }
-        }
-      }
-    }
-  </script>
-  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+          extend: {
+            colors: {
+              backdracula: "#282a36",
+              pinkdracula: "#ff79c6",
+              purpledracula: {
+                100: "#bd93f9",
+                200: "#914bf5",
+              },
+              whitedracula: "#f8f8f2",
+              cyandracula: "#8be9fd",
+              greydracula: "#44475a",
+              bluedracula: "#383A59",
+              reddracula: "#ff5555",
+            },
+            dropShadow: {
+              purpledracula: "0 0.35px 5px rgb(145,75,245)",
+            },
+          },
+        },
+      };
+    </script>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+      ></script>
   </head>
   <body>
     <!-- Full-width fluid until the `md` breakpoint, then lock to container -->
@@ -41,124 +51,174 @@
       <h1 class="font-bold text-xl text-center md:text-3xl md:mt-12 max-w-2xl mx-auto mb-4 bg-gradient-to-r from-purpledracula-100 via-purple-500 to-pinkdracula bg-clip-text text-transparent">
         Proyecto Final - IA Dashboard
       </h1>
-      <!-- Card Container Start -->
-      <!-- Card Temperatura -->
-      <div class="flex flex-wrap justify-center">
-        <div class="flex flex-col bg-whitedracula rounded-lg w-full m-6 overflow-hidden sm:w-52 hover:drop-shadow-whitemd">
-          <i class="fa-solid fa-temperature-low text-center fa-3x pb-5 m-4"></i>
-          <h2 class="text-center text-xl p-3 bg-purpledracula-100 hover:bg-purpledracula-200 transition-all duration-500">Temperatura</h2>
-        </div>
-        <!-- Card Distancia -->
-        <div class="flex flex-col bg-whitedracula rounded-lg w-full m-6 overflow-hidden sm:w-52 hover:drop-shadow-whitemd">
-          <i class="fa-solid fa-ruler-horizontal text-center fa-3x pb-5 m-4"></i>
-          <h2 class="text-center text-xl p-3 bg-purpledracula-100 hover:bg-purpledracula-200 transition-all duration-500">Distancia</h2>
-        </div>
-        <!-- Card Acceso Puerta -->
-        <div class="flex flex-col bg-whitedracula rounded-lg w-full m-6 overflow-hidden sm:w-52 hover:drop-shadow-whitemd">
-          <i class="fa-solid fa-door-closed text-center fa-3x pb-5 m-4"></i>
-          <h2 class="text-center text-xl p-3 bg-purpledracula-100 hover:bg-purpledracula-200 transition-all duration-500">Acceso</h2>
-        </div>
-      </div>
-      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded ring-white">Conectar</button>
-      <button class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">
-        Button
-      </button>
-      <button class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center">
-        <svg class="fill-current w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z"/></svg>
-        <span>Download</span>
-      </button>
-      <br>
-      <br>
-      <a href="#_" class="box-border relative z-30 inline-flex items-center justify-center w-auto px-8 py-3 overflow-hidden font-bold text-white transition-all duration-300 bg-indigo-600 rounded-md cursor-pointer group ring-offset-2 ring-1 ring-indigo-300 ring-offset-indigo-200 hover:ring-offset-indigo-500 ease focus:outline-none">
-        <span class="absolute bottom-0 right-0 w-8 h-20 -mb-8 -mr-5 transition-all duration-300 ease-out transform rotate-45 translate-x-1 bg-white opacity-10 group-hover:translate-x-0"></span>
-        <span class="absolute top-0 left-0 w-20 h-8 -mt-1 -ml-12 transition-all duration-300 ease-out transform -rotate-45 -translate-x-1 bg-white opacity-10 group-hover:translate-x-0"></span>
-        <span class="relative z-20 flex items-center text-sm">
-        <svg class="relative w-5 h-5 mr-2 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-        Button Text
-        </span>
-      </a>
-      <br>
-      <br>
-      <a href="#_" class="px-5 py-2.5 relative rounded group font-medium text-white font-medium inline-block">
-        <span class="absolute top-0 left-0 w-full h-full rounded opacity-50 filter blur-sm bg-gradient-to-br from-purple-600 to-blue-500"></span>
-        <span class="h-full w-full inset-0 absolute mt-0.5 ml-0.5 bg-gradient-to-br filter group-active:opacity-0 rounded opacity-50 from-purple-600 to-blue-500"></span>
-        <span class="absolute inset-0 w-full h-full transition-all duration-200 ease-out rounded shadow-xl bg-gradient-to-br filter group-active:opacity-0 group-hover:blur-sm from-purple-600 to-blue-500"></span>
-        <span class="absolute inset-0 w-full h-full transition duration-200 ease-out rounded bg-gradient-to-br to-purple-600 from-blue-500"></span>
-        <span class="relative">Button Text</span>
-      </a>
       <!-- Cards Rounded Bars -->
       <div class="flex flex-wrap justify-center">
-        <div class="flex items-center flex-wrap max-w-md px-10 bg-white shadow-xl rounded-2xl h-20 m-6"
-         x-data="{ circumference: 50 * 2 * Math.PI, percent: 80 }"
-         >
-            <div class="flex items-center justify-center -m-6 overflow-hidden bg-white rounded-full">
-              <svg class="w-32 h-32 transform translate-x-1 translate-y-1" x-cloak aria-hidden="true">
-                <circle
-                  class="text-gray-300"
-                  stroke-width="10"
-                  stroke="currentColor"
-                  fill="transparent"
-                  r="50"
-                  cx="60"
-                  cy="60"
-                  />
-                <circle
-                  class="text-purpledracula-200"
-                  stroke-width="10"
-                  :stroke-dasharray="circumference"
-                  :stroke-dashoffset="circumference - percent / 100 * circumference"
-                  stroke-linecap="round"
-                  stroke="currentColor"
-                  fill="transparent"
-                  r="50"
-                  cx="60"
-                  cy="60"
-                 />
-              </svg>
-              <span class="absolute text-2xl text-purpledracula-200" x-text="`${percent}%`"></span>
-            </div>
-            <p class="ml-10 font-medium text-graydracula sm:text-xl m-2">Temperatura</p>
-
-            <span class="ml-auto text-xl font-medium text-purpledracula-200 hidden sm:block">25&#8451;</span>
+        <div
+          class="flex items-center flex-wrap max-w-md px-10 bg-white shadow-xl rounded-2xl h-20 m-6"
+          x-data="{ circumference: 50 * 2 * Math.PI, percent: 80 }"
+          >
+          <div
+            class="flex items-center justify-center -m-6 overflow-hidden bg-white rounded-full"
+            >
+            <svg
+              class="w-32 h-32 transform translate-x-1 translate-y-1"
+              x-cloak
+              aria-hidden="true"
+              >
+              <circle
+                class="text-gray-300"
+                stroke-width="10"
+                stroke="currentColor"
+                fill="transparent"
+                r="50"
+                cx="60"
+                cy="60"
+                />
+              <circle
+                class="text-purpledracula-200"
+                stroke-width="10"
+                :stroke-dasharray="circumference"
+                :stroke-dashoffset="circumference - percent / 100 * circumference"
+                stroke-linecap="round"
+                stroke="currentColor"
+                fill="transparent"
+                r="50"
+                cx="60"
+                cy="60"
+                />
+            </svg>
+            <span
+              class="absolute text-2xl text-purpledracula-200"
+              x-text="`${percent}%`"
+              ></span>
+          </div>
+          <p class="ml-10 font-medium text-graydracula sm:text-xl m-2">
+            Temperatura
+          </p>
+          <span
+            class="ml-auto text-xl font-medium text-purpledracula-200 hidden sm:block"
+            >25&#8451;</span
+            >
         </div>
-
-
-        <div class="flex items-center flex-wrap max-w-md px-10 bg-whitedracula shadow-xl rounded-2xl h-20 m-6"
-           x-data="{ circumference: 50 * 2 * Math.PI, percent: 90 }"
-           >
-              <div class="flex items-center justify-center -m-6 overflow-hidden bg-whitedracula rounded-full">
-                <svg class="w-32 h-32 transform translate-x-1 translate-y-1" x-cloak aria-hidden="true">
-                  <circle
-                    class="text-gray-300"
-                    stroke-width="10"
-                    stroke="currentColor"
-                    fill="transparent"
-                    r="50"
-                    cx="60"
-                    cy="60"
-                    />
-                  <circle
-                    class="text-pinkdracula"
-                    stroke-width="10"
-                    :stroke-dasharray="circumference"
-                    :stroke-dashoffset="circumference - percent / 100 * circumference"
-                    stroke-linecap="round"
-                    stroke="currentColor"
-                    fill="transparent"
-                    r="50"
-                    cx="60"
-                    cy="60"
-                   />
-                </svg>
-                <span class="absolute text-2xl text-pinkdracula" x-text="`${percent}cm`"></span>
-              </div>
-              <p class="ml-10 font-medium text-graydracula sm:text-xl m-2">Distancia</p>
-
-              <span class="ml-auto text-xl font-medium text-pinkdracula hidden sm:block" x-text="`${percent}cm`"></span>
+        <div
+          class="flex items-center flex-wrap max-w-md px-10 bg-whitedracula shadow-xl rounded-2xl h-20 m-6"
+          x-data="{ circumference: 50 * 2 * Math.PI, percent: 90 }"
+          >
+          <div
+            class="flex items-center justify-center -m-6 overflow-hidden bg-whitedracula rounded-full"
+            >
+            <svg
+              class="w-32 h-32 transform translate-x-1 translate-y-1"
+              x-cloak
+              aria-hidden="true"
+              >
+              <circle
+                class="text-gray-300"
+                stroke-width="10"
+                stroke="currentColor"
+                fill="transparent"
+                r="50"
+                cx="60"
+                cy="60"
+                />
+              <circle
+                class="text-pinkdracula"
+                stroke-width="10"
+                :stroke-dasharray="circumference"
+                :stroke-dashoffset="circumference - percent / 100 * circumference"
+                stroke-linecap="round"
+                stroke="currentColor"
+                fill="transparent"
+                r="50"
+                cx="60"
+                cy="60"
+                />
+            </svg>
+            <span
+              class="absolute text-2xl text-pinkdracula"
+              x-text="`${percent}cm`"
+              ></span>
+          </div>
+          <p class="ml-10 font-medium text-graydracula sm:text-xl m-2">
+            Distancia
+          </p>
+          <span
+            class="ml-auto text-xl font-medium text-pinkdracula hidden sm:block"
+            x-text="`${percent}cm`"
+            ></span>
+        </div>
+        <div
+          class="flex items-center flex-wrap max-w-md px-10 bg-whitedracula shadow-xl rounded-2xl h-20 m-6"
+          x-data="{ circumference: 50 * 2 * Math.PI, percent: 100 }"
+          >
+          <div
+            class="flex items-center justify-center -m-6 overflow-hidden bg-whitedracula rounded-full"
+            >
+            <svg
+              class="w-32 h-32 transform translate-x-1 translate-y-1"
+              x-cloak
+              aria-hidden="true"
+              >
+              <circle
+                class="text-gray-300"
+                stroke-width="10"
+                stroke="currentColor"
+                fill="transparent"
+                r="50"
+                cx="60"
+                cy="60"
+                />
+              <circle
+                class="text-reddracula"
+                stroke-width="10"
+                :stroke-dasharray="circumference"
+                :stroke-dashoffset="circumference - percent / 100 * circumference"
+                stroke-linecap="round"
+                stroke="currentColor"
+                fill="transparent"
+                r="50"
+                cx="60"
+                cy="60"
+                />
+            </svg>
+            <!-- <span class="absolute text-2xl text-pinkdracula" x-text="`${percent}cm`"></span> -->
+            <span
+              class="absolute text-3xl text-reddracula fa-solid fa-door-closed"
+              ></span>
+            <!-- <i class="fa-solid fa-door-closed text-center fa-3x pb-5 m-4"></i> -->
+          </div>
+          <p class="ml-10 font-medium text-graydracula sm:text-xl m-2">
+            Cerrado
+          </p>
+          <!-- <span class="ml-auto text-xl font-medium text-pinkdracula hidden sm:block" x-text="`${percent}cm`"></span> -->
         </div>
       </div>
-      <!-- Cards Rounded Bars -->
+      <!-- Boton -->
+      <div class="flex flex-wrap justify-center">
+        <a
+          href="#_"
+          class="px-5 py-2.5 relative rounded group font-medium text-white font-medium inline-block"
+          >
+        <span
+          class="absolute top-0 left-0 w-full h-full rounded opacity-50 filter blur-sm bg-gradient-to-br from-purple-600 to-blue-500"
+          ></span>
+        <span
+          class="h-full w-full inset-0 absolute mt-0.5 ml-0.5 bg-gradient-to-br filter group-active:opacity-0 rounded opacity-50 from-purple-600 to-blue-500"
+          ></span>
+        <span
+          class="absolute inset-0 w-full h-full transition-all duration-200 ease-out rounded shadow-xl bg-gradient-to-br filter group-active:opacity-0 group-hover:blur-sm from-purple-600 to-blue-500"
+          ></span>
+        <span
+          class="absolute inset-0 w-full h-full transition duration-200 ease-out rounded bg-gradient-to-br to-purple-600 from-blue-500"
+          ></span>
+        <span class="relative">Conectar</span>
+        </a>
+      </div>
+      <!-- Boton -->
     </div>
+    <!-- Card Container Stop -->
+    <!-- Codigo Ejemplo -->
+    <!-- Codigo Ejemplo -->
     <script src="/socket.io/socket.io.js"></script>
     <script src="main.js"></script>
   </body>
