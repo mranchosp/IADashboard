@@ -1,225 +1,195 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>IA Dashboard</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-      />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          container: {
-            center: true,
-            padding: "2rem",
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>IA Dashboard</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        container: {
+          center: true,
+          padding: "2rem",
+        },
+        extend: {
+          colors: {
+            backdracula: "#282a36",
+            pinkdracula: "#ff79c6",
+            purpledracula: {
+              100: "#bd93f9",
+              200: "#914bf5",
+            },
+            whitedracula: "#f8f8f2",
+            cyandracula: "#8be9fd",
+            greydracula: "#44475a",
+            bluedracula: "#383A59",
+            reddracula: "#ff5555",
           },
-          extend: {
-            colors: {
-              backdracula: "#282a36",
-              pinkdracula: "#ff79c6",
-              purpledracula: {
-                100: "#bd93f9",
-                200: "#914bf5",
-              },
-              whitedracula: "#f8f8f2",
-              cyandracula: "#8be9fd",
-              greydracula: "#44475a",
-              bluedracula: "#383A59",
-              reddracula: "#ff5555",
-            },
-            dropShadow: {
-              purpledracula: "0 0.35px 5px rgb(145,75,245)",
-            },
+          dropShadow: {
+            purpledracula: "0 0.35px 20px rgb(145,75,245)",
+            pinkdracula: "0 0.35px 20px rgb(255,121,198)",
+            reddracula: "0 0.35px 20px rgb(255,85,85)"
           },
         },
-      };
-    </script>
-    <script
-      defer
-      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
-      ></script>
-  </head>
-  <body>
-    <!-- Full-width fluid until the `md` breakpoint, then lock to container -->
-    <div class="w-full min-h-screen bg-backdracula p-6">
-      <h1 class="font-bold text-xl text-center md:text-3xl md:mt-12 max-w-2xl mx-auto mb-4 bg-gradient-to-r from-purpledracula-100 via-purple-500 to-pinkdracula bg-clip-text text-transparent">
-        Proyecto Final - IA Dashboard
-      </h1>
-      <!-- Cards Rounded Bars -->
-      <div class="flex flex-wrap justify-center">
-        <div
-          class="flex items-center flex-wrap max-w-md px-10 bg-white shadow-xl rounded-2xl h-20 m-6"
-          x-data="{ circumference: 50 * 2 * Math.PI, percent: 80 }"
-          >
-          <div
-            class="flex items-center justify-center -m-6 overflow-hidden bg-white rounded-full"
-            >
-            <svg
-              class="w-32 h-32 transform translate-x-1 translate-y-1"
-              x-cloak
-              aria-hidden="true"
-              >
-              <circle
-                class="text-gray-300"
-                stroke-width="10"
-                stroke="currentColor"
-                fill="transparent"
-                r="50"
-                cx="60"
-                cy="60"
-                />
-              <circle
-                class="text-purpledracula-200"
-                stroke-width="10"
-                :stroke-dasharray="circumference"
-                :stroke-dashoffset="circumference - percent / 100 * circumference"
-                stroke-linecap="round"
-                stroke="currentColor"
-                fill="transparent"
-                r="50"
-                cx="60"
-                cy="60"
-                />
-            </svg>
-            <span
-              class="absolute text-2xl text-purpledracula-200"
-              x-text="`${percent}%`"
-              ></span>
-          </div>
-          <p class="ml-10 font-medium text-graydracula sm:text-xl m-2">
-            Temperatura
-          </p>
-          <span
-            class="ml-auto text-xl font-medium text-purpledracula-200 hidden sm:block"
-            >25&#8451;</span
-            >
+      },
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+
+<body>
+  <!-- Full-width fluid until the `md` breakpoint, then lock to container -->
+  <div class="w-full min-h-screen bg-backdracula p-6">
+    <h1
+      class="font-bold text-xl text-center md:text-3xl md:mt-12 max-w-2xl mx-auto mb-4 bg-gradient-to-r from-purpledracula-100 via-purple-500 to-pinkdracula bg-clip-text text-transparent">
+      Proyecto Final - IA Dashboard
+    </h1>
+    <!-- Cards Rounded Bars -->
+    <div class="flex flex-wrap justify-center space-x-2 sm:space-x-4 md:space-x-6 lg:space-x-8 xl:space-x-12">
+      <!-- Temperatura -->
+      <div class="flex items-center flex-wrap max-w-md px-10 bg-white shadow-xl rounded-2xl h-20 m-6 hover:drop-shadow-purpledracula">
+        <div class="flex items-center justify-center -m-6 overflow-hidden bg-white rounded-full">
+          <svg class="w-32 h-32 transform translate-x-1 translate-y-1" x-cloak aria-hidden="true">
+            <circle class="text-gray-300" stroke-width="10" stroke="currentColor" fill="transparent" r="50" cx="60"
+              cy="60" />
+            <circle class="text-purpledracula-200" stroke-width="10" :stroke-dasharray="circumference"
+              :stroke-dashoffset="circumference - percent / 100 * circumference" stroke-linecap="round"
+              stroke="currentColor" fill="transparent" r="50" cx="60" cy="60" />
+          </svg>
+          <span class="absolute text-2xl text-purpledracula-200">25 &#8451;</span>
         </div>
-        <div
-          class="flex items-center flex-wrap max-w-md px-10 bg-whitedracula shadow-xl rounded-2xl h-20 m-6"
-          x-data="{ circumference: 50 * 2 * Math.PI, percent: 90 }"
-          >
-          <div
-            class="flex items-center justify-center -m-6 overflow-hidden bg-whitedracula rounded-full"
-            >
-            <svg
-              class="w-32 h-32 transform translate-x-1 translate-y-1"
-              x-cloak
-              aria-hidden="true"
-              >
-              <circle
-                class="text-gray-300"
-                stroke-width="10"
-                stroke="currentColor"
-                fill="transparent"
-                r="50"
-                cx="60"
-                cy="60"
-                />
-              <circle
-                class="text-pinkdracula"
-                stroke-width="10"
-                :stroke-dasharray="circumference"
-                :stroke-dashoffset="circumference - percent / 100 * circumference"
-                stroke-linecap="round"
-                stroke="currentColor"
-                fill="transparent"
-                r="50"
-                cx="60"
-                cy="60"
-                />
-            </svg>
-            <span
-              class="absolute text-2xl text-pinkdracula"
-              x-text="`${percent}cm`"
-              ></span>
-          </div>
-          <p class="ml-10 font-medium text-graydracula sm:text-xl m-2">
-            Distancia
-          </p>
-          <span
-            class="ml-auto text-xl font-medium text-pinkdracula hidden sm:block"
-            x-text="`${percent}cm`"
-            ></span>
-        </div>
-        <div
-          class="flex items-center flex-wrap max-w-md px-10 bg-whitedracula shadow-xl rounded-2xl h-20 m-6"
-          x-data="{ circumference: 50 * 2 * Math.PI, percent: 100 }"
-          >
-          <div
-            class="flex items-center justify-center -m-6 overflow-hidden bg-whitedracula rounded-full"
-            >
-            <svg
-              class="w-32 h-32 transform translate-x-1 translate-y-1"
-              x-cloak
-              aria-hidden="true"
-              >
-              <circle
-                class="text-gray-300"
-                stroke-width="10"
-                stroke="currentColor"
-                fill="transparent"
-                r="50"
-                cx="60"
-                cy="60"
-                />
-              <circle
-                class="text-reddracula"
-                stroke-width="10"
-                :stroke-dasharray="circumference"
-                :stroke-dashoffset="circumference - percent / 100 * circumference"
-                stroke-linecap="round"
-                stroke="currentColor"
-                fill="transparent"
-                r="50"
-                cx="60"
-                cy="60"
-                />
-            </svg>
-            <!-- <span class="absolute text-2xl text-pinkdracula" x-text="`${percent}cm`"></span> -->
-            <span
-              class="absolute text-3xl text-reddracula fa-solid fa-door-closed"
-              ></span>
-            <!-- <i class="fa-solid fa-door-closed text-center fa-3x pb-5 m-4"></i> -->
-          </div>
-          <p class="ml-10 font-medium text-graydracula sm:text-xl m-2">
-            Cerrado
-          </p>
-          <!-- <span class="ml-auto text-xl font-medium text-pinkdracula hidden sm:block" x-text="`${percent}cm`"></span> -->
-        </div>
+        <p class="ml-10 font-medium text-graydracula sm:text-xl m-2">
+          Temperatura
+        </p>
       </div>
-      <!-- Boton -->
-      <div class="flex flex-wrap justify-center">
-        <a
-          href="#_"
-          class="px-5 py-2.5 relative rounded group font-medium text-white font-medium inline-block"
-          >
-        <span
-          class="absolute top-0 left-0 w-full h-full rounded opacity-50 filter blur-sm bg-gradient-to-br from-purple-600 to-blue-500"
-          ></span>
-        <span
-          class="h-full w-full inset-0 absolute mt-0.5 ml-0.5 bg-gradient-to-br filter group-active:opacity-0 rounded opacity-50 from-purple-600 to-blue-500"
-          ></span>
-        <span
-          class="absolute inset-0 w-full h-full transition-all duration-200 ease-out rounded shadow-xl bg-gradient-to-br filter group-active:opacity-0 group-hover:blur-sm from-purple-600 to-blue-500"
-          ></span>
-        <span
-          class="absolute inset-0 w-full h-full transition duration-200 ease-out rounded bg-gradient-to-br to-purple-600 from-blue-500"
-          ></span>
-        <span class="relative">Conectar</span>
-        </a>
+      <!-- Temperatura -->
+      <!-- Distancia -->
+      <div class="flex items-center flex-wrap max-w-md px-10 bg-white shadow-xl rounded-2xl h-20 m-6 hover:drop-shadow-pinkdracula">
+        <div class="flex items-center justify-center -m-6 overflow-hidden bg-whitedracula rounded-full">
+          <svg class="w-32 h-32 transform translate-x-1 translate-y-1" x-cloak aria-hidden="true">
+            <circle class="text-gray-300" stroke-width="10" stroke="currentColor" fill="transparent" r="50" cx="60"
+              cy="60" />
+            <circle class="text-pinkdracula" stroke-width="10" :stroke-dasharray="circumference"
+              :stroke-dashoffset="circumference - percent / 100 * circumference" stroke-linecap="round"
+              stroke="currentColor" fill="transparent" r="50" cx="60" cy="60" />
+          </svg>
+          <span class="absolute text-2xl text-pinkdracula">90cm</span>
+        </div>
+        <p class="ml-10 font-medium text-graydracula sm:text-xl m-2">
+          Distancia
+        </p>
       </div>
-      <!-- Boton -->
+      <!-- Distancia -->
+      <!-- Puerta -->
+      <div class="flex items-center flex-wrap max-w-md px-10 bg-white shadow-xl rounded-2xl h-20 m-6 hover:drop-shadow-reddracula">
+        <div class="flex items-center justify-center -m-6 overflow-hidden bg-whitedracula rounded-full">
+          <svg class="w-32 h-32 transform translate-x-1 translate-y-1" x-cloak aria-hidden="true">
+            <circle class="text-gray-300" stroke-width="10" stroke="currentColor" fill="transparent" r="50" cx="60"
+              cy="60" />
+            <circle class="text-reddracula" stroke-width="10" :stroke-dasharray="circumference"
+              :stroke-dashoffset="circumference - percent / 100 * circumference" stroke-linecap="round"
+              stroke="currentColor" fill="transparent" r="50" cx="60" cy="60" />
+          </svg>
+          <span class="absolute text-3xl text-reddracula fa-solid fa-door-closed"></span>
+        </div>
+        <p class="ml-10 font-medium text-graydracula sm:text-xl m-2">
+          Cerrado
+        </p>
+      </div>
+      <!-- Puerta -->
     </div>
-    <!-- Card Container Stop -->
-    <!-- Codigo Ejemplo -->
-    <!-- Codigo Ejemplo -->
-    <script src="/socket.io/socket.io.js"></script>
-    <script src="main.js"></script>
-  </body>
+    <!-- Boton -->
+    <div class="flex flex-wrap justify-center m-6">
+      <a href="#_" class="px-5 py-2.5 relative rounded group font-medium text-white font-medium inline-block">
+        <span
+          class="absolute top-0 left-0 w-full h-full rounded opacity-50 filter blur-sm bg-gradient-to-br from-purple-600 to-blue-500"></span>
+        <span
+          class="h-full w-full inset-0 absolute mt-0.5 ml-0.5 bg-gradient-to-br filter group-active:opacity-0 rounded opacity-50 from-purple-600 to-blue-500"></span>
+        <span
+          class="absolute inset-0 w-full h-full transition-all duration-200 ease-out rounded shadow-xl bg-gradient-to-br filter group-active:opacity-0 group-hover:blur-sm from-purple-600 to-blue-500"></span>
+        <span
+          class="absolute inset-0 w-full h-full transition duration-200 ease-out rounded bg-gradient-to-br to-purple-600 from-blue-500"></span>
+        <span class="relative">Conectar</span>
+      </a>
+    </div>
+    <!-- Boton -->
+    <!-- Table -->
+    <div class="flex flex-wrap justify-center m-6">
+      <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+        <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+          <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+              <th scope="col" class="px-6 py-3">
+                Temperatura
+              </th>
+              <th scope="col" class="px-6 py-3">
+                Distancia
+              </th>
+              <th scope="col" class="px-6 py-3">
+                Puerta
+              </th>
+              <th scope="col" class="px-6 py-3">
+                Fecha
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+              <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                Apple MacBook Pro 17"
+              </th>
+              <td class="px-6 py-4">
+                Silver
+              </td>
+              <td class="px-6 py-4">
+                Laptop
+              </td>
+              <td class="px-6 py-4">
+                $2999
+              </td>
+            </tr>
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+              <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                Microsoft Surface Pro
+              </th>
+              <td class="px-6 py-4">
+                White
+              </td>
+              <td class="px-6 py-4">
+                Laptop PC
+              </td>
+              <td class="px-6 py-4">
+                $1999
+              </td>
+            </tr>
+            <tr class="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600">
+              <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                Magic Mouse 2
+              </th>
+              <td class="px-6 py-4">
+                Black
+              </td>
+              <td class="px-6 py-4">
+                Accessories
+              </td>
+              <td class="px-6 py-4">
+                $99
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <!-- Table -->
+  </div>
+  <!-- Codigo Ejemplo -->
+  <!-- Codigo Ejemplo -->
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="main.js"></script>
+</body>
+
 </html>
