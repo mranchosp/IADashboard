@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@2.51.6/dist/full.css" rel="stylesheet" type="text/css" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -25,8 +26,6 @@
             },
             whitedracula: "#f8f8f2",
             cyandracula: "#8be9fd",
-            greydracula: "#44475a",
-            bluedracula: "#383A59",
             reddracula: "#ff5555",
           },
           dropShadow: {
@@ -38,7 +37,6 @@
       },
     };
   </script>
-  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
 
 <body>
@@ -50,60 +48,42 @@
     </h1>
     <!-- Cards Rounded Bars -->
     <div class="flex flex-wrap justify-center space-x-2 sm:space-x-4 md:space-x-6 lg:space-x-8 xl:space-x-12">
-      <!-- Temperatura -->
+      <!-- Temperatura Radial -->
       <div class="flex items-center flex-wrap max-w-md px-10 bg-white shadow-xl rounded-2xl h-20 m-6 hover:drop-shadow-purpledracula">
         <div class="flex items-center justify-center -m-6 overflow-hidden bg-white rounded-full">
-          <svg class="w-32 h-32 transform translate-x-1 translate-y-1" x-cloak aria-hidden="true">
-            <circle class="text-gray-300" stroke-width="10" stroke="currentColor" fill="transparent" r="50" cx="60"
-              cy="60" />
-            <circle class="text-purpledracula-200" stroke-width="10" :stroke-dasharray="circumference"
-              :stroke-dashoffset="circumference - percent / 100 * circumference" stroke-linecap="round"
-              stroke="currentColor" fill="transparent" r="50" cx="60" cy="60" />
-          </svg>
-          <span class="absolute text-2xl text-purpledracula-200">25 &#8451;</span>
+          <div id="barra_temp" class="radial-progress bg-whitedracula text-purpledracula-200 border-4 border-whitedracula" style="--value:25; --size:7rem; --thickness: 0.7rem;"></div>
+          <span id="temperatura" class="absolute text-2xl text-purpledracula-200">25 &#8451;</span>
         </div>
         <p class="ml-10 font-medium text-graydracula sm:text-xl m-2">
           Temperatura
         </p>
       </div>
-      <!-- Temperatura -->
-      <!-- Distancia -->
+      <!-- Temperatura Radial -->
+      <!-- Distancia Radial -->
       <div class="flex items-center flex-wrap max-w-md px-10 bg-white shadow-xl rounded-2xl h-20 m-6 hover:drop-shadow-pinkdracula">
-        <div class="flex items-center justify-center -m-6 overflow-hidden bg-whitedracula rounded-full">
-          <svg class="w-32 h-32 transform translate-x-1 translate-y-1" x-cloak aria-hidden="true">
-            <circle class="text-gray-300" stroke-width="10" stroke="currentColor" fill="transparent" r="50" cx="60"
-              cy="60" />
-            <circle class="text-pinkdracula" stroke-width="10" :stroke-dasharray="circumference"
-              :stroke-dashoffset="circumference - percent / 100 * circumference" stroke-linecap="round"
-              stroke="currentColor" fill="transparent" r="50" cx="60" cy="60" />
-          </svg>
-          <span class="absolute text-2xl text-pinkdracula">90cm</span>
+        <div class="flex items-center justify-center -m-6 overflow-hidden bg-whitedracula rounded-full" x-data="{ circumference: 50 * 2 * Math.PI, percent: 90 }">
+          <div id="barra_distancia" class="radial-progress bg-whitedracula text-pinkdracula border-4 border-whitedracula" style="--value:90; --size:7rem; --thickness: 0.7rem;"></div>
+          <span id="distancia" class="absolute text-2xl text-pinkdracula">90cm</span>
         </div>
         <p class="ml-10 font-medium text-graydracula sm:text-xl m-2">
           Distancia
         </p>
       </div>
       <!-- Distancia -->
-      <!-- Puerta -->
+      <!-- Puerta Radial Progress -->
       <div class="flex items-center flex-wrap max-w-md px-10 bg-white shadow-xl rounded-2xl h-20 m-6 hover:drop-shadow-reddracula">
         <div class="flex items-center justify-center -m-6 overflow-hidden bg-whitedracula rounded-full">
-          <svg class="w-32 h-32 transform translate-x-1 translate-y-1" x-cloak aria-hidden="true">
-            <circle class="text-gray-300" stroke-width="10" stroke="currentColor" fill="transparent" r="50" cx="60"
-              cy="60" />
-            <circle class="text-reddracula" stroke-width="10" :stroke-dasharray="circumference"
-              :stroke-dashoffset="circumference - percent / 100 * circumference" stroke-linecap="round"
-              stroke="currentColor" fill="transparent" r="50" cx="60" cy="60" />
-          </svg>
+          <div id="puerta" class="radial-progress bg-whitedracula text-reddracula border-4 border-whitedracula" style="--value:100; --size:7rem; --thickness: 0.7rem;"></div>
           <span class="absolute text-3xl text-reddracula fa-solid fa-door-closed"></span>
         </div>
         <p class="ml-10 font-medium text-graydracula sm:text-xl m-2">
           Cerrado
         </p>
       </div>
-      <!-- Puerta -->
+      <!-- Puerta Radial Progress -->
     </div>
     <!-- Boton -->
-    <div class="flex flex-wrap justify-center m-6">
+    <!-- <div class="flex flex-wrap justify-center m-6">
       <a href="#_" class="px-5 py-2.5 relative rounded group font-medium text-white font-medium inline-block">
         <span
           class="absolute top-0 left-0 w-full h-full rounded opacity-50 filter blur-sm bg-gradient-to-br from-purple-600 to-blue-500"></span>
@@ -115,70 +95,42 @@
           class="absolute inset-0 w-full h-full transition duration-200 ease-out rounded bg-gradient-to-br to-purple-600 from-blue-500"></span>
         <span class="relative">Conectar</span>
       </a>
-    </div>
+    </div> -->
     <!-- Boton -->
     <!-- Table -->
     <div class="flex flex-wrap justify-center m-6">
-      <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-        <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-          <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+      <div class="overflow-x-auto">
+        <table class="table table-zebra w-full">
+          <!-- head -->
+          <thead>
             <tr>
-              <th scope="col" class="px-6 py-3">
-                Temperatura
-              </th>
-              <th scope="col" class="px-6 py-3">
-                Distancia
-              </th>
-              <th scope="col" class="px-6 py-3">
-                Puerta
-              </th>
-              <th scope="col" class="px-6 py-3">
-                Fecha
-              </th>
+              <th></th>
+              <th>Name</th>
+              <th>Job</th>
+              <th>Favorite Color</th>
             </tr>
           </thead>
           <tbody>
-            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-              <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                Apple MacBook Pro 17"
-              </th>
-              <td class="px-6 py-4">
-                Silver
-              </td>
-              <td class="px-6 py-4">
-                Laptop
-              </td>
-              <td class="px-6 py-4">
-                $2999
-              </td>
+            <!-- row 1 -->
+            <tr>
+              <th>1</th>
+              <td>Cy Ganderton</td>
+              <td>Quality Control Specialist</td>
+              <td>Blue</td>
             </tr>
-            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-              <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                Microsoft Surface Pro
-              </th>
-              <td class="px-6 py-4">
-                White
-              </td>
-              <td class="px-6 py-4">
-                Laptop PC
-              </td>
-              <td class="px-6 py-4">
-                $1999
-              </td>
+            <!-- row 2 -->
+            <tr>
+              <th>2</th>
+              <td>Hart Hagerty</td>
+              <td>Desktop Support Technician</td>
+              <td>Purple</td>
             </tr>
-            <tr class="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600">
-              <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                Magic Mouse 2
-              </th>
-              <td class="px-6 py-4">
-                Black
-              </td>
-              <td class="px-6 py-4">
-                Accessories
-              </td>
-              <td class="px-6 py-4">
-                $99
-              </td>
+            <!-- row 3 -->
+            <tr>
+              <th>3</th>
+              <td>Brice Swyre</td>
+              <td>Tax Accountant</td>
+              <td>Red</td>
             </tr>
           </tbody>
         </table>
