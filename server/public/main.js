@@ -8,8 +8,8 @@ socket.on("temp", function(data) {
   let str = JSON.parse(data); //Then parse it
 
   // Temperatura
-  let cel = str.temperature[0]["Celcius"];
-  let far = str.temperature[0]["Fahrenheit"];
+  let cel = str["Celcius"];
+  // let far = str.temperature[0]["Fahrenheit"];
 
   let spanTemp = document.getElementById("temperatura");
   let barraTemp = document.getElementById("barra_temp");
@@ -40,3 +40,7 @@ socket.on("temp", function(data) {
     barraDistancia.classList.add = "text-reddracula";
   };
 });
+
+/* socket.on("dbtable", function(data) {
+  let tabla = document.getElementById("dbtable");
+}); */

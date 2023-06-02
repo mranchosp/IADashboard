@@ -5,6 +5,7 @@ import { connectDB } from "./db";
 import { PORT } from "./config";
 import serial from "./serial";
 
+
 connectDB();
 
 // Inicializa un servidor HTTP y le pasa la app de express
@@ -15,6 +16,6 @@ const httpServer = server.listen(PORT);
 console.log("Server is listening on port: " + PORT);
 
 // Inicializa el servidor de websockets
-const io = new WebSocketServer(server);
+const io = new WebSocketServer(httpServer)
 //sockets(io);
 serial(io);

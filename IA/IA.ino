@@ -1,6 +1,7 @@
 #include "DHT.h"
 #include <Wire.h>
 #include <EasyUltrasonic.h>
+
 #include <ArduinoJson.h>
 #include <Keypad.h>
 #include <LiquidCrystal_I2C.h>
@@ -15,17 +16,21 @@ LiquidCrystal_I2C lcd(0x27, 16, 2);
 #define DHTTYPE DHT11 // Tipo de sensor DHT.
 
 #define ECHOPIN 3 // pin digital conectado al pin echo del sensor ultrasonico.
-#define TRIGPIN 4 // pin digital conectado al pin trig del sensor ultrasonico.
+#define TRIGPIN 3 // pin digital conectado al pin trig del sensor ultrasonico.
 
 /* START KEYPAD CONFIG */
 const byte ROWS = 4;
 const byte COLS = 4;
 
 char hexaKeys[ROWS][COLS] = {
-  {'D', '#', '0', '*'},
+/*  {'D', '#', '0', '*'},
   {'C', '9', '8', '7'},
   {'B', '6', '5', '4'},
-  {'A', '3', '2', '1'}
+  {'A', '3', '2', '1'}*/
+  {'1','4','7','*'},
+  {'2','7','8','0'},
+  {'3','6','9','#'},
+  {'A','B','C','D'}
 };
 
 byte colPINS[COLS] = {5, 6, 7, 8};
@@ -69,21 +74,29 @@ void loop() {
   }
   
   int distance = roundf(ultrasonic.getPreciseDistanceCM(C, Hum) * 100) / 100;
+  int Cel = roundf(C * 100)/100;
+  int Far = roundf(F * 100)/100;
   
-  if (C != CelciusOld || distance != distanceOld) {
+  if (CelciusOld != Cel || distance < 5 || (distance > 5 && distance < 70)) {
+    /*Serial.print("CelOld: ");
+    Serial.println(CelciusOld);
+    Serial.print("Cel: ");
+    Serial.println(Cel);
+    Serial.print("disOld: ");
+    Serial.println(distanceOld);
+    Serial.print("dist: ");
+    Serial.println(distance);*/
     /* Genera JSON para enviar a NodeJS */
     StaticJsonDocument<48> doc; // Se define variable doc para creacion del JSON de respuesta.
 
-    JsonObject temperature_0 = doc["temperature"].createNestedObject(); // Agrega seccion temperature al JSON.
-
-    temperature_0["Celcius"] = C;
-    temperature_0["Farenheit"] = F;
+    doc["Celcius"] = Cel;
+    doc["Farenheit"] = Far;
     doc["distance"] = distance;
 
     serializeJson(doc, Serial); // Transmite por el puerto serial el JSON generado arriba.
     Serial.println();
 
-    CelciusOld = C;
+    CelciusOld = Cel;
     distanceOld = distance;
   }
 }
