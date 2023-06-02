@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -49,9 +50,12 @@
     <!-- Cards Rounded Bars -->
     <div class="flex flex-wrap justify-center space-x-2 sm:space-x-4 md:space-x-6 lg:space-x-8 xl:space-x-12">
       <!-- Temperatura Radial -->
-      <div class="flex items-center flex-wrap max-w-md px-10 bg-white shadow-xl rounded-2xl h-20 m-6 hover:drop-shadow-purpledracula">
+      <div
+        class="flex items-center flex-wrap max-w-md px-10 bg-white shadow-xl rounded-2xl h-20 m-6 hover:drop-shadow-purpledracula">
         <div class="flex items-center justify-center -m-6 overflow-hidden bg-white rounded-full">
-          <div id="barra_temp" class="radial-progress bg-whitedracula text-purpledracula-200 border-4 border-whitedracula" style="--value:25; --size:7rem; --thickness: 0.7rem;"></div>
+          <div id="barra_temp"
+            class="radial-progress bg-whitedracula text-purpledracula-200 border-4 border-whitedracula"
+            style="--value:25; --size:7rem; --thickness: 0.7rem;"></div>
           <span id="temperatura" class="absolute text-2xl text-purpledracula-200">25 &#8451;</span>
         </div>
         <p class="ml-10 font-medium text-graydracula sm:text-xl m-2">
@@ -60,9 +64,13 @@
       </div>
       <!-- Temperatura Radial -->
       <!-- Distancia Radial -->
-      <div class="flex items-center flex-wrap max-w-md px-10 bg-white shadow-xl rounded-2xl h-20 m-6 hover:drop-shadow-pinkdracula">
-        <div class="flex items-center justify-center -m-6 overflow-hidden bg-whitedracula rounded-full" x-data="{ circumference: 50 * 2 * Math.PI, percent: 90 }">
-          <div id="barra_distancia" class="radial-progress bg-whitedracula text-pinkdracula border-4 border-whitedracula" style="--value:90; --size:7rem; --thickness: 0.7rem;"></div>
+      <div
+        class="flex items-center flex-wrap max-w-md px-10 bg-white shadow-xl rounded-2xl h-20 m-6 hover:drop-shadow-pinkdracula">
+        <div class="flex items-center justify-center -m-6 overflow-hidden bg-whitedracula rounded-full"
+          x-data="{ circumference: 50 * 2 * Math.PI, percent: 90 }">
+          <div id="barra_distancia"
+            class="radial-progress bg-whitedracula text-pinkdracula border-4 border-whitedracula"
+            style="--value:90; --size:7rem; --thickness: 0.7rem;"></div>
           <span id="distancia" class="absolute text-2xl text-pinkdracula">90cm</span>
         </div>
         <p class="ml-10 font-medium text-graydracula sm:text-xl m-2">
@@ -71,9 +79,11 @@
       </div>
       <!-- Distancia -->
       <!-- Puerta Radial Progress -->
-      <div class="flex items-center flex-wrap max-w-md px-10 bg-white shadow-xl rounded-2xl h-20 m-6 hover:drop-shadow-reddracula">
+      <div
+        class="flex items-center flex-wrap max-w-md px-10 bg-white shadow-xl rounded-2xl h-20 m-6 hover:drop-shadow-reddracula">
         <div class="flex items-center justify-center -m-6 overflow-hidden bg-whitedracula rounded-full">
-          <div id="puerta" class="radial-progress bg-whitedracula text-reddracula border-4 border-whitedracula" style="--value:100; --size:7rem; --thickness: 0.7rem;"></div>
+          <div id="puerta" class="radial-progress bg-whitedracula text-reddracula border-4 border-whitedracula"
+            style="--value:100; --size:7rem; --thickness: 0.7rem;"></div>
           <span class="absolute text-3xl text-reddracula fa-solid fa-door-closed"></span>
         </div>
         <p class="ml-10 font-medium text-graydracula sm:text-xl m-2">
@@ -82,56 +92,20 @@
       </div>
       <!-- Puerta Radial Progress -->
     </div>
-    <!-- Boton -->
-    <!-- <div class="flex flex-wrap justify-center m-6">
-      <a href="#_" class="px-5 py-2.5 relative rounded group font-medium text-white font-medium inline-block">
-        <span
-          class="absolute top-0 left-0 w-full h-full rounded opacity-50 filter blur-sm bg-gradient-to-br from-purple-600 to-blue-500"></span>
-        <span
-          class="h-full w-full inset-0 absolute mt-0.5 ml-0.5 bg-gradient-to-br filter group-active:opacity-0 rounded opacity-50 from-purple-600 to-blue-500"></span>
-        <span
-          class="absolute inset-0 w-full h-full transition-all duration-200 ease-out rounded shadow-xl bg-gradient-to-br filter group-active:opacity-0 group-hover:blur-sm from-purple-600 to-blue-500"></span>
-        <span
-          class="absolute inset-0 w-full h-full transition duration-200 ease-out rounded bg-gradient-to-br to-purple-600 from-blue-500"></span>
-        <span class="relative">Conectar</span>
-      </a>
-    </div> -->
-    <!-- Boton -->
     <!-- Table -->
     <div class="flex flex-wrap justify-center m-6">
       <div class="overflow-x-auto">
-        <table class="table table-zebra w-full">
+        <table id="tabla" class="table table-zebra w-full">
           <!-- head -->
           <thead>
             <tr>
-              <th></th>
-              <th>Name</th>
-              <th>Job</th>
-              <th>Favorite Color</th>
+              <th>ID</th>
+              <th>Celcius</th>
+              <th>Distancia</th>
+              <th>Timestamp</th>
             </tr>
           </thead>
           <tbody>
-            <!-- row 1 -->
-            <tr>
-              <th>1</th>
-              <td>Cy Ganderton</td>
-              <td>Quality Control Specialist</td>
-              <td>Blue</td>
-            </tr>
-            <!-- row 2 -->
-            <tr>
-              <th>2</th>
-              <td>Hart Hagerty</td>
-              <td>Desktop Support Technician</td>
-              <td>Purple</td>
-            </tr>
-            <!-- row 3 -->
-            <tr>
-              <th>3</th>
-              <td>Brice Swyre</td>
-              <td>Tax Accountant</td>
-              <td>Red</td>
-            </tr>
           </tbody>
         </table>
       </div>
