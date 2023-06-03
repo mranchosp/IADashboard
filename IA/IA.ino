@@ -54,6 +54,10 @@ bool abierto = false;
 unsigned long previousMillis = 0;  // Variable para almacenar el tiempo de la última lectura
 const unsigned long interval = 5000;  // Intervalo de tiempo deseado (2 segundos)
 
+int distance = 10;
+int Cel = 0;
+int Far = 0;
+
 void setup() {
   Serial.begin(9600);
   EasyBuzzer.setPin(buzzerPIN); // Configura el PIN donde esta conectado el Buzzer
@@ -61,10 +65,6 @@ void setup() {
   dht.begin(); // Inicializa el sensor DHT y lo pone a trabajar.
   pinMode(12, OUTPUT);
 }
-
-    int distance = 10;
-    int Cel = 0;
-    int Far = 0;
 
 void loop() {
   EasyBuzzer.update();
@@ -116,7 +116,7 @@ void loop() {
     doc["Celcius"] = Cel;
     doc["Farenheit"] = Far;
     doc["distance"] = distance;
-    doc["abierto"] = abierto; // Agrega el valor de la variable abierto al objeto doc
+    doc["puerta"] = abierto; // Agrega el valor de la variable abierto al objeto doc
 
     serializeJson(doc, Serial); // Transmite por el puerto serial el JSON generado arriba.
     Serial.println();

@@ -26,9 +26,9 @@ export default (io) => {
     let conn;
     try {
       conn = await pool.getConnection();
-      console.log("temp: " + obj.Celcius);
-      console.log("distance: " + obj.distance);
-      const rows = await conn.query("INSERT INTO sensores (celcius, distancia) VALUES (?, ?)", [obj.Celcius, obj.distance]);
+      /* console.log("temp: " + obj.Celcius);
+      console.log("distance: " + obj.distance); */
+      const rows = await conn.query("INSERT INTO sensores (celcius, distancia, puerta) VALUES (?, ?, ?)", [obj.Celcius, obj.distance, obj.puerta]);
       conn.release();
       console.log(rows);
     } catch (error) {

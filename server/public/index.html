@@ -28,11 +28,13 @@
             whitedracula: "#f8f8f2",
             cyandracula: "#8be9fd",
             reddracula: "#ff5555",
+            greendracula: "#50fa7b"
           },
           dropShadow: {
             purpledracula: "0 0.35px 20px rgb(145,75,245)",
             pinkdracula: "0 0.35px 20px rgb(255,121,198)",
-            reddracula: "0 0.35px 20px rgb(255,85,85)"
+            reddracula: "0 0.35px 20px rgb(255,85,85)",
+            greendracula: "0 0.35px 20px rgb(80,250,123)"
           },
         },
       },
@@ -82,11 +84,11 @@
       <div
         id="card_puerta" class="flex items-center flex-wrap max-w-md px-10 bg-white shadow-xl rounded-2xl h-20 m-6 hover:drop-shadow-reddracula">
         <div class="flex items-center justify-center -m-6 overflow-hidden bg-whitedracula rounded-full">
-          <div id="puerta" class="radial-progress bg-whitedracula text-reddracula border-4 border-whitedracula"
+          <div id="barra_puerta" class="radial-progress bg-whitedracula text-reddracula border-4 border-whitedracula"
             style="--value:100; --size:7rem; --thickness: 0.7rem;"></div>
-          <span class="absolute text-3xl text-reddracula fa-solid fa-door-closed"></span>
+          <span id="icon_puerta" class="absolute text-3xl text-reddracula fa-solid fa-door-closed"></span>
         </div>
-        <p class="ml-10 font-medium text-graydracula sm:text-xl m-2">
+        <p id="texto_puerta" class="ml-10 font-medium text-graydracula sm:text-xl m-2">
           Cerrado
         </p>
       </div>
@@ -102,6 +104,7 @@
               <th>ID</th>
               <th>Celcius</th>
               <th>Distancia</th>
+              <th>Puerta</th>
               <th>Timestamp</th>
             </tr>
           </thead>
