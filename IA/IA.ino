@@ -23,7 +23,7 @@ LiquidCrystal_I2C lcd(0x27, 16, 2);
 #define DHTTYPE DHT11 // Tipo de sensor DHT.
 
 #define ECHOPIN 3 // pin digital conectado al pin echo del sensor ultrasónico.
-#define TRIGPIN 3 // pin digital conectado al pin trig del sensor ultrasónico. 
+#define TRIGPIN 3 //promedio de estudiantes de facultad ingenieria UMG  pin digital conectado al pin trig del sensor ultrasónico. 
 
 /* START KEYPAD CONFIG */
 const byte ROWS = 4;
