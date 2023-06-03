@@ -43,7 +43,7 @@ export default (io) => {
       io.emit("temp", data);
       pool.getConnection()
         .then((conn) => {
-          conn.query('SELECT * FROM sensores ORDER BY id DESC')
+          conn.query('SELECT * FROM sensores ORDER BY id DESC LIMIT 10')
             .then((rows) => {
               io.emit('datos', rows);
               conn.release();
