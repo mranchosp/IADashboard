@@ -9,18 +9,26 @@ socket.on("temp", function(data) {
 
   // Temperatura
   let cel = str["Celcius"];
-  // let far = str.temperature[0]["Fahrenheit"];
+  let cardTemp = document.getElementById("card_temp");
+  let cardDist = document.getElementById("card_dist");
+  let cardPuerta = document.getElementById("card_puerta");
 
   let spanTemp = document.getElementById("temperatura");
   let barraTemp = document.getElementById("barra_temp");
   spanTemp.textContent = `${cel}°C`;
   barraTemp.style.setProperty('--value', `${cel}`);
-  if (cel < 27) {
+  if (cel < 29) {
+    spanTemp.classList.remove("text-reddracula");
+    barraTemp.classList.remove("text-reddracula");
     spanTemp.classList.add("text-purpledracula-200");
     barraTemp.classList.add("text-purpledracula-200");
-  } else if (cel > 27) {
+    cardTemp.classList.remove("drop-shadow-reddracula");
+  } else if (cel >= 29) {
+    spanTemp.classList.remove("text-purpledracula-200");
+    barraTemp.classList.remove("text-purpledracula-200");
     spanTemp.classList.add("text-reddracula");
     barraTemp.classList.add("text-reddracula");
+    cardTemp.classList.add("drop-shadow-reddracula");
   }
   // Temperatura
   let distance = str["distance"];
@@ -30,14 +38,18 @@ socket.on("temp", function(data) {
   snapDistancia.textContent = `${distance} cm`;
   barraDistancia.style.setProperty('--value', `${distance}`);
 
-  if (distance < 10) {
-    console.log("distancia menor a 10");
-    snapDistancia.classList.add = "text-pinkdracula";
-    barraDistancia.classList.add = "text-pinkdracula";
+  if (distance > 6) {
+    snapDistancia.classList.remove("text-reddracula");
+    barraDistancia.classList.remove("text-reddracula");
+    snapDistancia.classList.add("text-pinkdracula");
+    barraDistancia.classList.add("text-pinkdracula");
+    cardDist.classList.remove("drop-shadow-reddracula");
   } else {
-    console.log("distancia mayor a 10");
-    snapDistancia.classList.add = "text-reddracula";
-    barraDistancia.classList.add = "text-reddracula";
+    snapDistancia.classList.remove("text-pinkdracula");
+    barraDistancia.classList.remove("text-pinkdracula");
+    snapDistancia.classList.add("text-reddracula");
+    barraDistancia.classList.add("text-reddracula");
+    cardDist.classList.add("drop-shadow-reddracula");
   };
 });
 

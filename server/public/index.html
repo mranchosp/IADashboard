@@ -51,7 +51,7 @@
     <div class="flex flex-wrap justify-center space-x-2 sm:space-x-4 md:space-x-6 lg:space-x-8 xl:space-x-12">
       <!-- Temperatura Radial -->
       <div
-        class="flex items-center flex-wrap max-w-md px-10 bg-white shadow-xl rounded-2xl h-20 m-6 hover:drop-shadow-purpledracula">
+        id="card_temp" class="flex items-center flex-wrap max-w-md px-10 bg-white shadow-xl rounded-2xl h-20 m-6 hover:drop-shadow-purpledracula">
         <div class="flex items-center justify-center -m-6 overflow-hidden bg-white rounded-full">
           <div id="barra_temp"
             class="radial-progress bg-whitedracula text-purpledracula-200 border-4 border-whitedracula"
@@ -65,7 +65,7 @@
       <!-- Temperatura Radial -->
       <!-- Distancia Radial -->
       <div
-        class="flex items-center flex-wrap max-w-md px-10 bg-white shadow-xl rounded-2xl h-20 m-6 hover:drop-shadow-pinkdracula">
+        id="card_dist" class="flex items-center flex-wrap max-w-md px-10 bg-white shadow-xl rounded-2xl h-20 m-6 hover:drop-shadow-pinkdracula">
         <div class="flex items-center justify-center -m-6 overflow-hidden bg-whitedracula rounded-full"
           x-data="{ circumference: 50 * 2 * Math.PI, percent: 90 }">
           <div id="barra_distancia"
@@ -80,7 +80,7 @@
       <!-- Distancia -->
       <!-- Puerta Radial Progress -->
       <div
-        class="flex items-center flex-wrap max-w-md px-10 bg-white shadow-xl rounded-2xl h-20 m-6 hover:drop-shadow-reddracula">
+        id="card_puerta" class="flex items-center flex-wrap max-w-md px-10 bg-white shadow-xl rounded-2xl h-20 m-6 hover:drop-shadow-reddracula">
         <div class="flex items-center justify-center -m-6 overflow-hidden bg-whitedracula rounded-full">
           <div id="puerta" class="radial-progress bg-whitedracula text-reddracula border-4 border-whitedracula"
             style="--value:100; --size:7rem; --thickness: 0.7rem;"></div>
