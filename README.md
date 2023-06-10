@@ -1,15 +1,38 @@
+## Universidad Mariano Galvez de Guatemala
+
+### Ingenieria en Sistemas y Ciencias de la Computación 9no. semestre.
+
+### Proyecto Final del Curso de Inteligencia Artificial
+
+### Integrantes:
+
+- Mónica del Rosario Ranchos Pineda
+
+- Luis Armando Pérez Marín
+
+
 # IADashboard
 
-## Integrantes
+### Requisitos
+- nodejs lts
+- Arduino IDE v2
 
-Mónica del Rosario Ranchos Pineda
+### Instalación
+- Clonar el repositorio
+  - ```git clone https://github.com/mranchosp/IADashboard.git```
+- Entrar al directorio del repositorio
+  - ```cd IADashboard```
+- Instalar dependencias
+  - ```npm install```
 
-Luis Armando Pérez Marín
+### Uso
+- Iniciar servidor desarrollo
+  - ```npm run dev```
+- Conectar Arduino al puerto USB
+- Entrar al navegador a la url http://localhost:3001
 
-Proyecto Final del Curso de Inteligencia Artificial.
 
-Universidad Mariano Galvez de Guatemala.
 
-Ingenieria en Sistemas y Ciencias de la Computación 9no. semestre.
 
-&copy; 2023
+
+Guatemala, Amatitl&aacute;n &copy; 2023
